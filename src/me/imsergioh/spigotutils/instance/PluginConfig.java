@@ -17,6 +17,13 @@ public class PluginConfig {
         FileUtils.setupFileAndParents(file);
     }
 
+    public void registerDefault(String path, Object value){
+        if(config.contains(path)){
+            return;
+        }
+        config.set(path, value);
+    }
+
     public void set(String path, Object value){
         config.set(path, value);
     }
