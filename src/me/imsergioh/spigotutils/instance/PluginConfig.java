@@ -21,6 +21,7 @@ public class PluginConfig {
         file = new File(configPath, configName);
         FileUtils.setupFileAndParents(file);
         ConfigManager.register(this);
+        load();
     }
 
     public PluginConfig registerDefault(String path, Object value){
@@ -47,6 +48,10 @@ public class PluginConfig {
 
     public File getFile() {
         return file;
+    }
+
+    public String fileName(){
+        return file.getName();
     }
 
     public FileConfiguration getConfig() {
