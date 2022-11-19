@@ -1,4 +1,4 @@
-package me.imsergioha.spigotutils.util;
+package me.imsergioh.spigotutils.util;
 
 public class ChatUtil {
 

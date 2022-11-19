@@ -1,6 +1,6 @@
 package me.imsergioh.spigotutils.instance;
 
-import me.imsergioha.spigotutils.util.FileUtils;
+import me.imsergioh.spigotutils.util.FileUtils;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 

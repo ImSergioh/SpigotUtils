@@ -1,4 +1,4 @@
-package me.imsergioha.spigotutils.util;
+package me.imsergioh.spigotutils.util;
 
 import java.io.File;
 import java.io.IOException;
