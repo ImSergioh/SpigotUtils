@@ -4,15 +4,18 @@ import me.imsergioh.spigotutils.instance.PluginConfig;
 import me.imsergioh.spigotutils.util.LocationsUtil;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class SpawnManager {
 
+    private JavaPlugin plugin;
     private final PluginConfig pluginConfig;
 
     private Location spawn;
 
-    public SpawnManager(String configPath, String configName){
-        pluginConfig = new PluginConfig(configPath, configName);
+    public SpawnManager(JavaPlugin plugin, String configPath, String configName){
+        this.plugin = plugin;
+        pluginConfig = new PluginConfig(plugin, configPath, configName);
     }
 
     public void loadSpawn(){

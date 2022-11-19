@@ -1,27 +1,34 @@
 package me.imsergioh.spigotutils.instance;
 
+import me.imsergioh.spigotutils.manager.ConfigManager;
 import me.imsergioh.spigotutils.util.FileUtils;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
 
 public class PluginConfig {
 
-    private File file;
+    private JavaPlugin plugin;
+
+    private final File file;
     private FileConfiguration config;
 
-    public PluginConfig(String configPath, String configName) {
+    public PluginConfig(JavaPlugin plugin, String configPath, String configName) {
+        this.plugin = plugin;
         file = new File(configPath, configName);
         FileUtils.setupFileAndParents(file);
+        ConfigManager.register(this);
     }
 
-    public void registerDefault(String path, Object value){
+    public PluginConfig registerDefault(String path, Object value){
         if(config.contains(path)){
-            return;
+            return this;
         }
         config.set(path, value);
+        return this;
     }
 
     public void set(String path, Object value){
@@ -44,5 +51,9 @@ public class PluginConfig {
 
     public FileConfiguration getConfig() {
         return config;
+    }
+
+    public JavaPlugin getPlugin() {
+        return plugin;
     }
 }
